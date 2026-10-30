@@ -45,3 +45,7 @@ Depois de executar SQL e configurar `config.js`, acesse https://github.com/Eurip
 - Uma revisão (`revision`) evita sobrescrita automática se dois aparelhos alteraram os mesmos dados simultaneamente. O usuário escolhe qual versão preservar e pode exportar backups.
 - Este mecanismo é adequado a um **MVP**, não oferece mesclagem automática de alterações concorrentes nem sincronização offline garantida em todos os navegadores. Antes de escala, implementar sincronização por tarefa/registro e testes de integração abrangentes.
 - Em PWA, acesso inicial, login, recuperação de senha e sincronização exigem internet. O cache de interface não significa que todo o fluxo de autenticação esteja disponível offline.
+
+### Configuração sem editar código manualmente
+
+Abra `ASSISTENTE_CONFIGURACAO.html` no navegador, preencha somente a URL pública do projeto e a chave `publishable` (nunca a `service_role`), e baixe um `config.js` pronto para enviar ao GitHub junto dos arquivos da versão 3.1. Antes de enviar, aplique `schema.sql` e faça o teste com duas contas e dois navegadores.
