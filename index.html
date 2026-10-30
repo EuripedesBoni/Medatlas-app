@@ -8,6 +8,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="MedAtlas" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="./icon-192.png" />
   
   
   
@@ -259,6 +263,16 @@
   /* Versão de arquivo único: sem service worker; armazenamento local mantido. */
   render();
 })();
+</script>
+
+<script>
+/* Offline e instalacao PWA: usa arquivos do proprio repositorio no GitHub Pages. */
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || ['localhost', '127.0.0.1'].includes(location.hostname))) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js', { scope: './' })
+      .catch(function (error) { console.warn('MedAtlas offline indisponível:', error); });
+  });
+}
 </script>
 </body>
 </html>
